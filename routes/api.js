@@ -5,9 +5,9 @@
 *       
 *       
 */
-
 'use strict';
-
+const mongoose = require('mongoose');
+const Book = require('../model/Book');
 module.exports = function (app) {
 
   app.route('/api/books')

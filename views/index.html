@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/public/style.css">
   <style>
     code {
@@ -12,44 +13,44 @@
     }
   </style>
 </head>
-<body>
-<header>
-  <h1>Personal Library</h1>
+<body class="bg-gray-100 max-w-screen-sm m-auto">
+<header class="bg-blue-500 text-white p-4">
+  <h1 class="text-3xl">Personal Library</h1>
 </header>
 <br>
-<div id ='sampleposting'>
-  <h2 style="text-align: left">Test API responses</h2>
-  <form action="/api/books" method="post" class="border">
-    <h4>Test post to /api/books</h4>
-    <label for="title" >Book Title</label>
-    <input type="text" id="title" name="title" value=""><br>
-    <input type="submit" value="Submit">
+<div id='sampleposting' class="p-4 ">
+  <h2 class="text-left text-2xl mb-4">Test API responses</h2>
+  <form action="/api/books" method="post" class="border p-4 mb-4">
+    <h4 class="text-xl mb-2">Test post to /api/books</h4>
+    <label for="title" class="block mb-2">Book Title</label>
+    <input type="text" id="title" name="title" class="border p-2 w-full mb-4">
+    <input type="submit" value="Submit" class="bg-blue-500 text-white p-2 rounded">
   </form>
-  <form action="" method="post" id="commentTest" class="border">
-    <h4>Test post to /api/books/{bookid}</h4>
-    <label for="idinputtest">BookId to comment on</label>
-    <input type="text" name="id" value="" id="idinputtest"><br>
-    <label for="comment">Comment</label>
-    <input type="text" id="comment" name="comment" value=""><br>
-    <input type="submit" value="Submit">
+  <form action="" method="post" id="commentTest" class="border p-4">
+    <h4 class="text-xl mb-2">Test post to /api/books/{bookid}</h4>
+    <label for="idinputtest" class="block mb-2">BookId to comment on</label>
+    <input type="text" name="id" value="" id="idinputtest" class="border p-2 w-full mb-4">
+    <label for="comment" class="block mb-2">Comment</label>
+    <input type="text" id="comment" name="comment" value="" class="border p-2 w-full mb-4">
+    <input type="submit" value="Submit" class="bg-blue-500 text-white p-2 rounded">
   </form>
 </div>
-<hr style='margin: 50px'>
-<div id='sampleui'>
-  <h2 style="text-align: left">Sample Front-End</h2>
-  <form id="newBookForm" class="border">
-    <label for="bookTitleToAdd">New Book Title</label>
-    <input type="text" id="bookTitleToAdd" name="title" placeholder="Moby Dick" style="width: 295px">
-    <button type="submit" value="Submit" id="newBook">Submit New Book!</button>
+<hr class='my-12'>
+<div id='sampleui' class="p-4">
+  <h2 class="text-left text-2xl mb-4">Sample Front-End</h2>
+  <form id="newBookForm" class="border p-4 mb-4">
+    <label for="bookTitleToAdd" class="block mb-2">New Book Title</label>
+    <input type="text" id="bookTitleToAdd" name="title" placeholder="Moby Dick" class="border p-2 w-full mb-4">
+    <button type="submit" value="Submit" id="newBook" class="bg-blue-500 text-white p-2 rounded">Submit New Book!</button>
   </form>
-  <div id='display'></div>
-  <div id='bookDetail' class='border'>
-    <p id='detailTitle'>Select a book to see it's details and comments</p>
+  <div id='display' class="mb-4"></div>
+  <div id='bookDetail' class='border p-4'>
+    <p id='detailTitle' class="mb-4">Select a book to see its details and comments</p>
     <ol id='detailComments'></ol>
   </div>
-  <button id='deleteAllBooks'>Delete all books...</button>
+  <button id='deleteAllBooks' class="bg-red-500 text-white p-2 rounded mt-4">Delete all books...</button>
 </div>
-<hr style='margin: 50px'>
+<hr class='my-12'>
 
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"
         integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
@@ -61,7 +62,7 @@
   */
   $(function() {
     $('#commentTest').submit(function(){
-      let  id = $('#idinputtest').val();
+      let id = $('#idinputtest').val();
       $(this).attr('action', "/api/books/" + id);
     });
   });
