@@ -22,7 +22,7 @@ module.exports = function (app) {
       //response will contain new book object including atleast _id and title
       let title = req.body.title;
       if(!title) {
-        res.send('missing title');
+        res.send('missing required field title');
         return;
       }
       const book = new Book({
@@ -65,7 +65,7 @@ module.exports = function (app) {
       let comment = req.body.comment;
       //json res format same as .get
       if(!comment) {
-        res.send('missing comment');
+        res.send('missing required field comment');
         return;
       }
       if(!mongoose.Types.ObjectId.isValid(bookid)){

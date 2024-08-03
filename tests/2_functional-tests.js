@@ -62,7 +62,7 @@ suite('Functional Tests', function() {
           .send({})
           .end(function(err, res) {
             assert.equal(res.status, 200);
-            assert.equal(res.text, 'missing title');
+            assert.equal(res.text, 'missing required field title');
             done();
           });
       });
@@ -172,7 +172,7 @@ suite('Functional Tests', function() {
               .send({})
               .end(function(err, res) {
                 assert.equal(res.status, 200);
-                assert.equal(res.text, 'missing comment');
+                assert.equal(res.text, 'missing required field comment');
                 done();
               });
           });
